@@ -158,9 +158,8 @@ PriorityQueue::PolicyQueue::ApplyPolicy(
         } else {
           rejected_queue_.emplace_back(std::move(queue_[curr_idx]));
           *rejected_count += 1;
-          *rejected_batch_size += rejected_queue_.back()
-                                      .request_provider_->Request()
-                                      ->BatchSize();
+          *rejected_batch_size +=
+              rejected_queue_.back().request_provider_->Request()->BatchSize();
         }
         curr_idx++;
       }
